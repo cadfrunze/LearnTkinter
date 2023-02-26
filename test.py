@@ -11,3 +11,6 @@ def calculate(n, **kwargs):
 
 
 calculate(n=2, add=5, multiply=4)
+
+with open('work_log.txt', 'a') as file:
+    file.writelines('\n26.02')
