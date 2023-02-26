@@ -1,3 +1,6 @@
+import random
+
+
 def add(n1, n2):
     return float(n1) + float(n2)
 
@@ -22,23 +25,34 @@ PLUS = '+'
 MINUS = '-'
 IMPARTIT = '/'
 INMULTIT = '*'
-PUTERE = '**'
+# PUTERE = '**'
 
 data_dict = {
     PLUS: add,
     MINUS: subs,
     INMULTIT: mult,
     IMPARTIT: divide,
-    PUTERE: la_putere,
+    # PUTERE: la_putere,
 }
 
-user_input = input('Zii ecuatia: ')
-user_input = user_input.replace(" ", '')
+# user_input = input('Zii ecuatia: ')
+# user_input = user_input.replace(" ", '')
+#
+# user_list = [item for item in user_input]
+list_semne = [PLUS, MINUS, IMPARTIT, INMULTIT]
+ran_num = random.randint(2, 10)
+calculator_ecuatie = []
+for _ in range(ran_num):
+    numar = random.randint(1, 1000)
+    calculator_ecuatie.append(numar)
+    semn = random.choice(list_semne)
+    calculator_ecuatie.append(semn)
 
-user_list = [item for item in user_input]
-
-
-# user_list1 = [int(num) for num in user_input if num != '+' or num != '-' or num != '/' or num != '*' or num != '**']
+calculator_ecuatie.pop(-1)
+lista_proba = [str(item) for item in calculator_ecuatie]
+string_proba = ''.join(lista_proba)
+print(string_proba)
+input('Apasa pt a continua')
 
 
 def curatire(lista, indexul):
@@ -52,26 +66,27 @@ def curatire(lista, indexul):
 
 def calculate(lista):
     while INMULTIT or IMPARTIT in lista:
-        if INMULTIT and IMPARTIT not in lista:
+        if INMULTIT not in lista and IMPARTIT not in lista:
             break
-        if INMULTIT in lista:
-            indexul = lista.index(INMULTIT)
-            ecuatia = data_dict[INMULTIT]
-            suma = ecuatia(lista[indexul - 1], lista[indexul + 1])
-            curatire(lista=lista, indexul=indexul)
-            lista.insert(indexul - 1, suma)
+        for semnul in lista:
+            if semnul == INMULTIT or semnul == IMPARTIT:
+                if semnul == INMULTIT:
+                    indexul = lista.index(INMULTIT)
+                    ecuatia = data_dict[INMULTIT]
+                    suma = ecuatia(lista[indexul - 1], lista[indexul + 1])
+                    curatire(lista=lista, indexul=indexul)
+                    lista.insert(indexul - 1, suma)
+                    break
 
-        if IMPARTIT in lista:
-            indexul = lista.index(IMPARTIT)
-            ecuatia = data_dict[IMPARTIT]
-            suma = ecuatia(lista[indexul - 1], lista[indexul + 1])
-            curatire(lista=lista, indexul=indexul)
-            lista.insert(indexul - 1, suma)
-
+                elif semnul == IMPARTIT:
+                    indexul = lista.index(IMPARTIT)
+                    ecuatia = data_dict[IMPARTIT]
+                    suma = ecuatia(lista[indexul - 1], lista[indexul + 1])
+                    curatire(lista=lista, indexul=indexul)
+                    lista.insert(indexul - 1, suma)
+                    break
     while PLUS or MINUS in lista:
-        if PLUS and MINUS not in lista:
-            print(PLUS in lista)
-            print(MINUS in lista)
+        if PLUS not in lista and MINUS not in lista:
             break
         if PLUS in lista:
             indexul = lista.index(PLUS)
@@ -90,5 +105,7 @@ def calculate(lista):
     return lista
 
 
-print(calculate(lista=user_list))
-# print(sum(user_list1))
+rezultat = calculate(lista=calculator_ecuatie)
+rezultat_str = str(rezultat[-1]).replace('[', '')
+rezultat_str = rezultat_str.replace(']', '')
+print(rezultat_str)
