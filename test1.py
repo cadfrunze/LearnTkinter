@@ -9,12 +9,5 @@
 #
 # print(x)
 
-def add(*args):
-    sum = 0
-    for n in args:
-        sum = sum + n
-    return sum
-
-
-
-print(add(1, 1, 1))
+with open('work_log.txt', 'a') as file:
+    file.writelines('\n02.03')
