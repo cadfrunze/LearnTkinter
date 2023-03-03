@@ -9,5 +9,15 @@
 #
 # print(x)
 
-with open('work_log.txt', 'a') as file:
-    file.writelines('\n02.03')
+# with open('work_log.txt', 'a') as file:
+#     file.writelines('\n03.03')
+
+# def calculator(n1, **kwargs):
+#     print(f"add = {kwargs['add'] + n1}")
+#     print(f"multiply = {kwargs['multiply'] * n1}")
+#
+#
+# calculator(n1=1, add=1, multiply=1)
+
+a = None
+help(a)

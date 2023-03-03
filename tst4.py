@@ -10,9 +10,12 @@ eticheta.pack()
 
 
 def click_button1():
+    display_name = button1_input.get().capitalize()
     if len(button1_input.get()) >= 1:
-        eticheta.config(text=f'{button1_input.get().capitalize()}')
-        button1.config(text=f'{button1_input.get().capitalize()}')
+        print(button1_input.get())
+        print(type(button1_input.get()))
+        eticheta.config(text=f'{display_name}')
+        button1.config(text=f'{display_name}')
     else:
         button1.config(text='Click me')
         eticheta.config(text='Hey vezi ca nu ai scris nimic:)')
