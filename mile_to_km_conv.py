@@ -26,8 +26,8 @@ def command_b():
     """Comanda dupa ce se apasa
     butonul + convertirea valorii
     in km"""
-    valoarea = round(float(entry_mile.get()) / 0.621371192)
-    text_rezultat.config(text=f'{valoarea}')
+    noua_valoare = round(float(entry_mile.get()) / 0.621371192)
+    text_rezultat.config(text=f'{noua_valoare}')
 
 
 def exit_progr():
