@@ -11,7 +11,7 @@ PADX_Y = 5
 
 # Boxa unde se introduce valoarea
 entry_mile = Entry(width=10)
-entry_mile.get()
+
 entry_mile.grid(column=4, row=3, padx=PADX_Y, pady=PADX_Y)
 
 # Valoarea inainte de convertire
