@@ -1,5 +1,6 @@
 from tkinter import *
 import sys
+from tkinter import messagebox
 
 window = Tk()
 window.title(string='Program convert mile to km')
@@ -26,12 +27,16 @@ def command_b():
     """Comanda dupa ce se apasa
     butonul + convertirea valorii
     in km"""
-    noua_valoare = round(float(entry_mile.get()) / 0.621371192)
+    noua_valoare = round(float(entry_mile.get()) * 1.609344, 2)
     text_rezultat.config(text=f'{noua_valoare}')
 
 
 def exit_progr():
-    sys.exit()
+    show_exit = messagebox.askquestion(title='Sigur vrei sa iesi?')
+    if show_exit == 'yes':
+        sys.exit()
+    else:
+        pass
 
 
 # Butonul
@@ -40,6 +45,7 @@ b_calculate.grid(column=4, row=5)
 
 b_exit = Button(text='Iesire', command=exit_progr)
 b_exit.grid(column=4, row=6, padx=PADX_Y, pady=PADX_Y)
+
 
 # Descrierea in label
 text_primul = Label(text=f'Rezultatul este:')
