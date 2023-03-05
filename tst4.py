@@ -4,9 +4,10 @@ import pandas
 window = Tk()
 window.minsize(width=500, height=600)
 window.title(string='Prima aplicatie')
+window.config(padx=20, pady=20)
 
 eticheta = Label(text='Inca nu afiseaza nimic')
-eticheta.pack()
+eticheta.grid(column=0, row=0)
 
 
 def click_button1():
@@ -22,8 +23,11 @@ def click_button1():
 
 
 button1 = Button(text='Click here', command=click_button1)
-button1.pack()
+button1.grid(column=1, row=1)
 button1_input = Entry(width=10)
-button1_input.pack()
+button1_input.grid(column=2, row=2)
+
+new_button = Button(text='New Button')
+new_button.grid(row=0, column=3)
 
 window.mainloop()

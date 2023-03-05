@@ -18,6 +18,5 @@
 #
 #
 # calculator(n1=1, add=1, multiply=1)
-
-a = None
-help(a)
+with open('work_log.txt', 'a') as file:
+    file.writelines('\n05.03')
